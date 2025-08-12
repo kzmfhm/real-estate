@@ -23,11 +23,37 @@ export const AgentItem = ({ agent, data, onEdit, onDelete }) => {
           <p className="text-sm text-gray-600">{agent.email}</p>
         </div>
         <div className="flex gap-2 flex-shrink-0 ml-4">
-          <Button onClick={() => setIsExpanded(!isExpanded)} variant="secondary" className="p-2 h-9 w-9">
-          <ChevronDown size={16} className={`transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+           <Button className="text-white"
+            onClick={() => setIsExpanded(!isExpanded)}
+          
+          >
+            <ChevronDown
+              size={16}
+              strokeWidth={2}
+              className={`text-white drop-shadow-sm transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+            />
           </Button>
-          <Button onClick={onEdit} variant="secondary" className="p-2 h-9 w-9"><Edit size={16} /></Button>
-          <Button onClick={onDelete} variant="danger" className="p-2 h-9 w-9"><Trash2 size={16} /></Button>
+           <Button className="text-white"
+          onClick={onEdit}
+        variant="success"
+        >
+          <Edit
+            size={16}
+            strokeWidth={2}
+            className="text-white"
+          />
+        </Button>
+          
+          <Button
+          onClick={onDelete}
+          variant="danger"
+        >
+          <Trash2
+            size={16}
+            strokeWidth={2}
+            className="text-white "
+          />
+        </Button>
         </div>
       </div>
       {isExpanded && (

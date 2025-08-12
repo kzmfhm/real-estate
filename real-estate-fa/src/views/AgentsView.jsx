@@ -21,7 +21,7 @@ export const AgentsView = ({ data, onCrud, onFieldChange, getNewId }) => {
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Agents</h2>
         <Button onClick={() => { setIsCreating(true); setEditingId(null); }}>
-          <Plus size={16}/> Add Agent
+          <Plus size={16} className='text-white'/ > Add Agent
         </Button>
       </div>
       {isCreating && <AgentForm onSave={handleSave} onCancel={() => setIsCreating(false)} allFields={data.fields} onFieldChange={onFieldChange} getNewId={getNewId}/>}
