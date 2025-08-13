@@ -1,4 +1,3 @@
-
 import { Listing } from './entities/listing.entity';
 import { Agent } from '../agents/entities/agent.entity';
 import { ListingField } from './entities/listing-field.entity';
@@ -23,19 +22,17 @@ export class ListingsService {
   async create(createListingDto: CreateListingDto): Promise<Listing> {
     const { agentIds, customFields, ...listingDetails } = createListingDto;
 
-    // 1. Fetch the related Agent entities
+
     const agents = await this.agentRepository.findBy({ id: In(agentIds) });
     if (agents.length !== agentIds.length) {
       throw new Error('One or more agents not found');
     }
 
-    // 2. Create the new Listing entity
     const listing = this.listingRepository.create({
       ...listingDetails,
       agents, 
     });
 
-    // 3. Handle custom fields if they exist
     if (customFields && customFields.length > 0) {
         listing.customFields = customFields.map(cf => 
             this.listingFieldRepository.create({
@@ -45,11 +42,9 @@ export class ListingsService {
         );
     }
     
-    // 4. Save the listing. TypeORM and the `cascade` options will handle saving everything.
     return this.listingRepository.save(listing);
   }
 
-  // To fetch a listing with all its data:
   findOne(id: number) {
     return this.listingRepository.findOne({
         where: { id },

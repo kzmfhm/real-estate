@@ -13,6 +13,6 @@ export class ListingField {
   @ManyToOne(() => Listing, (listing) => listing.customFields, { onDelete: 'CASCADE' })
   listing: Listing;
 
-  @ManyToOne(() => Field, { eager: true, onDelete: 'CASCADE' }) // eager loads the Field info automatically
+  @ManyToOne(() => Field, { eager: true, onDelete: 'CASCADE' }) 
   field: Field;
 }

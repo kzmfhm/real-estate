@@ -19,9 +19,9 @@ export class Listing {
   address: string;
 
   @ManyToMany(() => Agent, (agent) => agent.listings, {
-    cascade: ['insert', 'update'], // when saving a listing, its agents can be auto-inserted/updated
+    cascade: ['insert', 'update'], 
   })
-  @JoinTable() // This side of the relationship is responsible for the join table
+  @JoinTable() 
   agents: Agent[];
 
   @OneToMany(() => ListingField, (listingField) => listingField.listing, {

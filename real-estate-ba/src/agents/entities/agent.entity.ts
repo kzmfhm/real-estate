@@ -1,4 +1,3 @@
-
 import {
   Column,
   Entity,
@@ -8,6 +7,7 @@ import {
 } from 'typeorm';
 import { Listing } from 'src/listings/entities/listing.entity';
 import { AgentField } from './agent-field.entity';
+
 
 @Entity()
 export class Agent {
@@ -24,7 +24,7 @@ export class Agent {
   listings: Listing[];
 
   @OneToMany(() => AgentField, (agentField) => agentField.agent, {
-    cascade: true, // Automatically save/remove agentFields when an agent is saved/removed
+    cascade: true,
   })
   customFields: AgentField[];
 }

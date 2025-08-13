@@ -1,5 +1,3 @@
-// src/listings/listings.module.ts
-
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ListingsService } from './listings.service';
