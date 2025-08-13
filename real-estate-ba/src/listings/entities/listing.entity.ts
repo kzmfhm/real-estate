@@ -10,6 +10,7 @@ import {
 import { ListingField } from './listing-field.entity';
 
 
+
 @Entity()
 export class Listing {
   @PrimaryGeneratedColumn()
