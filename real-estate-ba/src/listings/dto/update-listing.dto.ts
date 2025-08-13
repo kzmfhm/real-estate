@@ -7,23 +7,18 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
+import { CustomFieldDto } from './create-listing.dto'; 
 
-export class CustomFieldDto {
-  @IsInt()
-  fieldId: number;
-
-  @IsString()
-  value: string;
-}
-
-export class CreateListingDto {
+export class UpdateListingDto {
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
-  address: string;
+  address?: string;
 
+  @IsOptional()
   @IsArray()
   @IsInt({ each: true })
-  agentIds: number[];
+  agentIds?: number[];
 
   @IsOptional()
   @IsArray()
