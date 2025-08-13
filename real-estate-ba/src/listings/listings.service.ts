@@ -1,4 +1,4 @@
-// ... imports for Injectable, InjectRepository, Repository, etc.
+
 import { Listing } from './entities/listing.entity';
 import { Agent } from '../agents/entities/agent.entity';
 import { ListingField } from './entities/listing-field.entity';
@@ -9,8 +9,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 
 
 
-
-
 @Injectable()
 export class ListingsService {
   constructor(
@@ -18,7 +16,6 @@ export class ListingsService {
     private readonly listingRepository: Repository<Listing>,
     @InjectRepository(Agent)
     private readonly agentRepository: Repository<Agent>,
-    // You must also inject ListingField repository
     @InjectRepository(ListingField)
     private readonly listingFieldRepository: Repository<ListingField>,
   ) {}
@@ -35,7 +32,7 @@ export class ListingsService {
     // 2. Create the new Listing entity
     const listing = this.listingRepository.create({
       ...listingDetails,
-      agents, // Assign the full agent objects
+      agents, 
     });
 
     // 3. Handle custom fields if they exist
@@ -43,7 +40,7 @@ export class ListingsService {
         listing.customFields = customFields.map(cf => 
             this.listingFieldRepository.create({
                 value: cf.value,
-                field: { id: cf.fieldId } // Just need to link by ID
+                field: { id: cf.fieldId } 
             })
         );
     }
@@ -60,5 +57,4 @@ export class ListingsService {
     });
   }
   
-  // ... other methods for findAll, update, delete
 }
