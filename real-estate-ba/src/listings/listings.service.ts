@@ -52,4 +52,9 @@ export class ListingsService {
     });
   }
   
+  findAll(): Promise<Listing[]> {
+    return this.listingRepository.find({
+        relations: ['agents', 'customFields', 'customFields.field']
+    });
+  }
 }

@@ -23,4 +23,11 @@ export class ListingsController {
 
     return listing;
   }
+
+  @Get()
+  findAll(): Promise<Listing[]> {
+    return this.listingsService.findAll();
+  }
+
+
 }

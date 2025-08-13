@@ -1,5 +1,4 @@
-
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Agent } from './entities/agent.entity';
@@ -13,6 +12,13 @@ export class AgentsService {
   ) {}
 
   async create(createAgentDto: CreateAgentDto): Promise<Agent> {
+    const existingAgent = await this.agentRepository.findOne({
+      where: { email: createAgentDto.email },
+    });
+
+    if (existingAgent) {
+      throw new ConflictException('An agent with this email already exists.');
+    }
     const newAgent = this.agentRepository.create(createAgentDto);
     return this.agentRepository.save(newAgent);
   }
