@@ -4,8 +4,6 @@ import { Card } from "../ui/Card";
 import { Input } from "../ui/Input";
 import { Select } from "../ui/Select";
 
-
-
 export const ListingForm = ({ listing, agents, onSave, onCancel, allFields, listingsFields }) => {
   const [address, setAddress] = useState(listing?.address || '');
   const [agentIds, setAgentIds] = useState(listing?.agentIds || []);
