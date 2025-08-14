@@ -1,11 +1,17 @@
 import { Controller, Post, Body, Get, Param } from '@nestjs/common';
-import { AgentsService } from './agents.service';
+import { AgentsService } from './agents.service'; // Assuming AgentsService handles repository interaction
 import { CreateAgentDto } from './dto/create-agent.dto';
 import { Agent } from './entities/agent.entity';
+import { InjectRepository } from '@nestjs/typeorm'; // Import InjectRepository
+import { Repository } from 'typeorm'; // Import Repository
 
 @Controller('agents')
 export class AgentsController {
-  constructor(private readonly agentsService: AgentsService) {}
+  constructor(
+    private readonly agentsService: AgentsService, // Keep the service for other operations
+    @InjectRepository(Agent) // Inject the Agent repository directly for find operations
+    private agentsRepository: Repository<Agent>,
+  ) {}
 
   @Post()
   create(@Body() createAgentDto: CreateAgentDto): Promise<Agent> {
@@ -13,12 +19,15 @@ export class AgentsController {
   }
 
   @Get()
-  findAll(){
-    return this.agentsService.findAll();
+  async findAll(): Promise<Agent[]> {
+    // Eagerly load the customFields relationship, including the nested field entity
+    return this.agentsRepository.find({ relations: ['customFields', 'customFields.field'] });
   }
 
   @Get(':id')
-    findPOne(@Param('id') id:string){
-      return this.agentsService.findOne(+id);
-    }
+  // Changed return type to Promise<Agent | null> because findOne can return null
+  findPOne(@Param('id') id: string): Promise<Agent | null> {
+    // You might want to also load customFields for a single agent lookup
+    return this.agentsRepository.findOne({ where: { id: +id }, relations: ['customFields', 'customFields.field'] });
+  }
 }

@@ -16,3 +16,4 @@ export class AgentField {
   @ManyToOne(() => Field, { eager: true, onDelete: 'CASCADE' })
   field: Field;
 }
+

@@ -1,12 +1,13 @@
-// src/listings/listings.service.ts
 import { Listing } from './entities/listing.entity';
 import { Agent } from '../agents/entities/agent.entity';
 import { ListingField } from './entities/listing-field.entity';
 import { CreateListingDto } from './dto/create-listing.dto';
-import { UpdateListingDto } from './dto/update-listing.dto'; // Import the Update DTO
+import { UpdateListingDto } from './dto/update-listing.dto';
 import { In, Repository } from 'typeorm';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+
+
 
 @Injectable()
 export class ListingsService {

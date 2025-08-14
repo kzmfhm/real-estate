@@ -1,5 +1,5 @@
 
-export const NavItem = ({ icon, label, tabName, activeTab, setActiveTab }) => (
+const NavItem = ({ icon, label, tabName, activeTab, setActiveTab }) => (
   <li>
     <button
       onClick={() => setActiveTab(tabName)}
@@ -12,3 +12,5 @@ export const NavItem = ({ icon, label, tabName, activeTab, setActiveTab }) => (
     </button>
   </li>
 );
+
+export default NavItem
