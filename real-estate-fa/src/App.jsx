@@ -68,7 +68,6 @@ export default function App() {
     }
   };
 
-  // Centralized CRUD operation handler
   const handleCrud = async (entityType, operation, payload) => {
     try {
       setIsLoading(true);
@@ -85,9 +84,9 @@ export default function App() {
         default:
           console.warn('Unknown CRUD operation:', operation);
       }
-      // After any CRUD operation, refetch all data to update the UI
+
       await fetchAllData();
-      setEditingItem(null); // Exit editing mode after save/delete
+      setEditingItem(null);
     } catch (error) {
       console.error(`Failed to perform ${operation} on ${entityType}:`, error);
       alert(`Error performing ${operation} on ${entityType}. Check console for details.`);
@@ -96,11 +95,9 @@ export default function App() {
     }
   };
 
-  // Placeholder for getNewId and onFieldChange
-  const getNewId = () => Date.now(); // Simple unique ID for new items
+
+  const getNewId = () => Date.now();
   const onFieldChange = (itemId, fieldId, value) => {
-    // This function would typically handle updates to individual custom field values.
-    // For now, it's a placeholder to satisfy the prop requirement.
     console.log(`Field changed for item ${itemId}, field ${fieldId}: ${value}`);
   };
 
@@ -123,7 +120,6 @@ export default function App() {
       onDataChange: handleDataChange,
       editingItem,
       setEditingItem,
-      // Pass the new CRUD handler and utility functions
       onCrud: handleCrud,
       onFieldChange: onFieldChange,
       getNewId: getNewId,
@@ -148,7 +144,6 @@ export default function App() {
           <h1 className="text-4xl font-bold text-gray-800">Real Estate Manager</h1>
           <p className="text-gray-500 mt-1">A fully integrated application for managing property data.</p>
         </header>
-
         <div className="flex flex-col md:flex-row gap-8">
           <aside className="md:w-1/4">
             <nav className="bg-white rounded-lg shadow p-4">
