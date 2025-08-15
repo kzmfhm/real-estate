@@ -63,7 +63,8 @@ export const ListingsView = ({ data, onDataChange, editingItem, setEditingItem }
       {isCreating && <ListingForm agents={data.agents} allFields={data.fields} onSave={handleSave} onCancel={handleCancel} />}
       {data.listings.map(listing => (
         editingItem?.type === 'listing' && editingItem?.data?.id === listing.id
-        ? <ListingForm key={listing.id} listing={listing} agents={data.agents} allFields={data.fields} listingsFields={data.listingsFields} onSave={handleSave} onCancel={handleCancel} />
+        ? <ListingForm key={listing.id} listing={listing} agents={data.agents} allFields={data.fields} 
+         listingsFields={data.listingsFields} onSave={handleSave} onCancel={handleCancel} />
         : <ListingItem key={listing.id} listing={listing} data={data} onEdit={() => handleEdit(listing)} onDelete={() => handleDelete(listing.id)} />
       ))}
     </div>

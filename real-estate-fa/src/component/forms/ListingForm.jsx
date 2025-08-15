@@ -75,8 +75,7 @@ export const ListingForm = ({ listing, agents, onSave, onCancel, allFields, list
             ))}
           </Select>
           <p className="text-xs text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple.</p>
-        </div>
-        
+        </div>        
         <div className="pt-4 border-t">
           <h4 className="font-medium mb-2">Custom Fields</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -101,7 +100,6 @@ export const ListingForm = ({ listing, agents, onSave, onCancel, allFields, list
             ))}
           </div>
         </div>
-
         <div className="flex gap-2 justify-end">
           <Button type="button" onClick={onCancel} variant="secondary">Cancel</Button>
           <Button type="submit" variant="primary">Save</Button>
