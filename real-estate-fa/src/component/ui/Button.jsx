@@ -9,7 +9,7 @@ export const Button = ({ onClick, children, variant = 'primary', className = '',
 
   };
   return (
-    <button onClick={onClick} className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>
+    <button onClick={onClick} className={`${baseStyles} ${variants[variant]} ${className} cursor-pointer`} {...props}>
       {children}
     </button>
   );
