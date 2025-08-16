@@ -8,8 +8,7 @@ import { AgentsModule } from './agents/agents.module';
 import { FieldsModule } from './fields/fields.module';
 
 @Module({
-  imports: [
-   
+  imports: [   
     ConfigModule.forRoot({
       isGlobal: true, 
     }),
