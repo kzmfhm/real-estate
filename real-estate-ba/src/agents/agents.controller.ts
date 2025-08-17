@@ -20,7 +20,6 @@ export class AgentsController {
 
   @Get()
   async findAll(): Promise<Agent[]> {
-    // Eagerly load the customFields relationship, including the nested field entity
     return this.agentsRepository.find({ relations: ['customFields', 'customFields.field'] });
   }
 
