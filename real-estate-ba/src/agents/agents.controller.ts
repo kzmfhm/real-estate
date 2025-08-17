@@ -1,9 +1,9 @@
 import { Controller, Post, Body, Get, Param } from '@nestjs/common';
-import { AgentsService } from './agents.service'; // Assuming AgentsService handles repository interaction
+import { AgentsService } from './agents.service'; 
 import { CreateAgentDto } from './dto/create-agent.dto';
 import { Agent } from './entities/agent.entity';
-import { InjectRepository } from '@nestjs/typeorm'; // Import InjectRepository
-import { Repository } from 'typeorm'; // Import Repository
+import { InjectRepository } from '@nestjs/typeorm'; 
+import { Repository } from 'typeorm'; 
 
 @Controller('agents')
 export class AgentsController {
