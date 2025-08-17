@@ -8,8 +8,8 @@ import { Repository } from 'typeorm'; // Import Repository
 @Controller('agents')
 export class AgentsController {
   constructor(
-    private readonly agentsService: AgentsService, // Keep the service for other operations
-    @InjectRepository(Agent) // Inject the Agent repository directly for find operations
+    private readonly agentsService: AgentsService, 
+    @InjectRepository(Agent) 
     private agentsRepository: Repository<Agent>,
   ) {}
 

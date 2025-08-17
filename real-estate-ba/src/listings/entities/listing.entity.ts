@@ -10,7 +10,6 @@ import {
 import { ListingField } from './listing-field.entity';
 
 
-
 @Entity()
 export class Listing {
   @PrimaryGeneratedColumn()
@@ -22,6 +21,7 @@ export class Listing {
   @ManyToMany(() => Agent, (agent) => agent.listings, {
     cascade: ['insert', 'update'], 
   })
+  
   @JoinTable() 
   agents: Agent[];
 

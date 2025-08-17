@@ -1,4 +1,3 @@
-
 import { Controller, Get, Post, Body, Param, NotFoundException, Delete, Patch } from '@nestjs/common';
 import { ListingsService } from './listings.service';
 import { CreateListingDto } from './dto/create-listing.dto';
