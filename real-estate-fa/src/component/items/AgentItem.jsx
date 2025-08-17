@@ -24,8 +24,7 @@ export const AgentItem = ({ agent, data, onEdit, onDelete }) => {
         </div>
         <div className="flex gap-2 flex-shrink-0 ml-4">
            <Button className="text-white"
-            onClick={() => setIsExpanded(!isExpanded)}
-          
+            onClick={() => setIsExpanded(!isExpanded)}          
           >
             <ChevronDown
               size={16}
