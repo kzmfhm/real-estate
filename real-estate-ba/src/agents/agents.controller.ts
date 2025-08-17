@@ -25,9 +25,7 @@ export class AgentsController {
   }
 
   @Get(':id')
-  // Changed return type to Promise<Agent | null> because findOne can return null
   findPOne(@Param('id') id: string): Promise<Agent | null> {
-    // You might want to also load customFields for a single agent lookup
     return this.agentsRepository.findOne({ where: { id: +id }, relations: ['customFields', 'customFields.field'] });
   }
 }
