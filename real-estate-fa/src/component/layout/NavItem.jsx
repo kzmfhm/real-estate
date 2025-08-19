@@ -1,4 +1,3 @@
-
 const NavItem = ({ icon, label, tabName, activeTab, setActiveTab }) => (
   <li>
     <button

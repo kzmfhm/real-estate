@@ -79,7 +79,8 @@ export const FieldsView = ({ data, onDataChange, editingItem, setEditingItem }) 
                     size={16}
                     strokeWidth={2}
                     className="text-white"
-                  /></Button>
+                  />
+                  </Button>
                   <Button onClick={() => handleDelete(field.id)} variant="danger" className="text-white">
                     <Trash2
                       size={16}
