@@ -1,3 +1,3 @@
-## Real Estate Frontend app
+## Real Estate 
 # React + Vite +Tailwindcss
 
