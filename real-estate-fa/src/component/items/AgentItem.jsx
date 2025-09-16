@@ -23,8 +23,8 @@ export const AgentItem = ({ agent, data, onEdit, onDelete }) => {
           <p className="text-sm text-gray-600">{agent.email}</p>
         </div>
         <div className="flex gap-2 flex-shrink-0 ml-4">
-           <Button className="text-white"
-            onClick={() => setIsExpanded(!isExpanded)}          
+          <Button className="text-white"
+            onClick={() => setIsExpanded(!isExpanded)}
           >
             <ChevronDown
               size={16}
@@ -32,31 +32,31 @@ export const AgentItem = ({ agent, data, onEdit, onDelete }) => {
               className={`text-white drop-shadow-sm transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
             />
           </Button>
-           <Button className="text-white"
-          onClick={onEdit}
-        variant="success"
-        >
-          <Edit
-            size={16}
-            strokeWidth={2}
-            className="text-white"
-          />
-        </Button>
-          
+          <Button className="text-white"
+            onClick={onEdit}
+            variant="success"
+          >
+            <Edit
+              size={16}
+              strokeWidth={2}
+              className="text-white"
+            />
+          </Button>
+
           <Button
-          onClick={onDelete}
-          variant="danger"
-        >
-          <Trash2
-            size={16}
-            strokeWidth={2}
-            className="text-white "
-          />
-        </Button>
+            onClick={onDelete}
+            variant="danger"
+          >
+            <Trash2
+              size={16}
+              strokeWidth={2}
+              className="text-white "
+            />
+          </Button>
         </div>
       </div>
       {isExpanded && (
-         <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4 border-t border-gray-200">
           <h4 className="font-semibold mb-2">Details:</h4>
           {customFields.length > 0 ? (
             <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm">
