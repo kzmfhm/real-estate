@@ -4,6 +4,8 @@ import { CreateListingDto } from './dto/create-listing.dto';
 import { Listing } from './entities/listing.entity';
 import { UpdateListingDto } from './dto/update-listing.dto';
 
+
+
 @Controller('listings')
 export class ListingsController {
   constructor(private readonly listingsService: ListingsService) { }
