@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ListingsController } from './listings.controller';
 
+
 describe('ListingsController', () => {
   let controller: ListingsController;
 
